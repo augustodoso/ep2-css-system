@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EP II — Design System + Layout Responsivo</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/utilities.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">
+        <button class="btn btn-icon only-mobile" id="btnMenu" aria-label="Abrir menu" aria-expanded="false" aria-controls="menuPrincipal">☰</button>
+        <strong class="logo">MinhaMarca</strong>
+      </div>
+
+      <nav id="menuPrincipal" class="nav" aria-label="Menu principal">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="#">Início</a></li>
+          <li class="nav__item nav__item--has-dropdown">
+            <button class="nav__dropdown-btn" aria-haspopup="true" aria-expanded="false">Projetos</button>
+            <ul class="nav__dropdown" role="menu">
+              <li role="none"><a role="menuitem" href="#grid">Grid 12 colunas</a></li>
+              <li role="none"><a role="menuitem" href="#cards">Cards</a></li>
+              <li role="none"><a role="menuitem" href="#forms">Formulários</a></li>
+            </ul>
+          </li>
+          <li class="nav__item"><a href="#componentes">Componentes</a></li>
+          <li class="nav__item"><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero container">
+      <div class="hero__content">
+        <h1>EP II — Sistema de Design, Grid & Acessibilidade</h1>
+        <p>CSS3 moderno com Grid (estrutura), Flexbox (componentes), tipografia hierárquica, paleta de 8+ cores e 5 breakpoints.</p>
+        <div class="actions">
+          <button class="btn btn-primary" data-open-modal="#modalDemo">Abrir Modal</button>
+          <button class="btn btn-secondary" id="btnToast">Mostrar Toast</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="grid" class="container section">
+      <h2>Grid 12 colunas + breakpoints</h2>
+      <div class="row demo-grid">
+        <div class="col-12 col-md-6 col-lg-4"><div class="demo-box">1</div></div>
+        <div class="col-12 col-md-6 col-lg-4"><div class="demo-box">2</div></div>
+        <div class="col-12 col-md-12 col-lg-4"><div class="demo-box">3</div></div>
+      </div>
+    </section>
+
+    <section id="cards" class="container section">
+      <h2>Cards responsivos</h2>
+      <div class="row">
+        <article class="col-12 col-sm-6 col-lg-4">
+          <div class="card">
+            <img class="card__img" src="img/placeholder-1.svg" alt="Imagem ilustrativa 1">
+            <div class="card__body">
+              <h3 class="card__title">Projeto A <span class="badge badge-primary">Novo</span></h3>
+              <p>Card com conteúdo adaptável e ações.</p>
+              <div class="card__actions">
+                <a class="btn btn-outline" href="#">Ver</a>
+                <button class="btn btn-primary">Abrir</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="col-12 col-sm-6 col-lg-4">
+          <div class="card">
+            <img class="card__img" src="img/placeholder-2.svg" alt="Imagem ilustrativa 2">
+            <div class="card__body">
+              <h3 class="card__title">Projeto B <span class="badge">UI</span></h3>
+              <p>Exemplo com badge e botões com estados.</p>
+              <div class="card__actions">
+                <a class="btn btn-outline" href="#">Docs</a>
+                <button class="btn btn-secondary">Demo</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="col-12 col-sm-6 col-lg-4">
+          <div class="card">
+            <img class="card__img" src="img/placeholder-3.svg" alt="Imagem ilustrativa 3">
+            <div class="card__body">
+              <h3 class="card__title">Projeto C <span class="badge badge-accent">A11y</span></h3>
+              <p>Tipografia hierárquica e espaçamentos modulares.</p>
+              <div class="card__actions">
+                <button class="btn btn-danger">Excluir</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="forms" class="container section">
+      <h2>Formulários com validação visual</h2>
+      <form class="form" id="demoForm" novalidate>
+        <div class="form__group">
+          <label for="nome">Nome</label>
+          <input id="nome" name="nome" type="text" required placeholder="Seu nome" />
+          <small class="form__msg">Campo obrigatório.</small>
+        </div>
+        <div class="form__group">
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" required placeholder="nome@exemplo.com" />
+          <small class="form__msg">Informe um e-mail válido.</small>
+        </div>
+        <div class="form__group">
+          <label for="categoria">Categoria</label>
+          <select id="categoria" name="categoria" required>
+            <option value="">Selecione</option>
+            <option>Front-end</option>
+            <option>Back-end</option>
+            <option>UI/UX</option>
+          </select>
+        </div>
+        <div class="form__group">
+          <label class="checkbox">
+            <input type="checkbox" id="aceite" required> <span>Concordo com os termos</span>
+          </label>
+          <small class="form__msg">Você deve aceitar os termos.</small>
+        </div>
+        <button class="btn btn-primary" type="submit">Enviar</button>
+      </form>
+    </section>
+
+    <section id="componentes" class="container section">
+      <h2>Feedbacks: Alerts, Toasts e Modal</h2>
+      <div class="alert alert-success" role="alert">Sucesso! Ação concluída.</div>
+      <div class="alert alert-warning" role="alert">Atenção! Verifique os campos.</div>
+      <div class="alert alert-danger" role="alert">Erro! Algo deu errado.</div>
+    </section>
+
+    <section id="contato" class="container section">
+      <h2>Contato</h2>
+      <p>Este projeto demonstra um <strong>sistema de design</strong> completo, <strong>grid 12 colunas</strong>, <strong>5 breakpoints</strong>, navegação com <strong>dropdown</strong> e <strong>menu hambúrguer</strong>, além de componentes acessíveis.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© 2025 — EP II • Feito com HTML + CSS + JS</small>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal" id="modalDemo" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal__dialog" role="document" aria-labelledby="modalTitle">
+      <h3 id="modalTitle">Olá! Eu sou um Modal</h3>
+      <p>Este modal segue boas práticas de acessibilidade com foco gerenciado.</p>
+      <div class="modal__actions">
+        <button class="btn btn-secondary" data-close-modal>Fechar</button>
+        <button class="btn btn-primary">Ação</button>
+      </div>
+    </div>
+    <button class="modal__backdrop" data-close-modal aria-label="Fechar modal"></button>
+  </div>
+
+  <!-- Toast container -->
+  <div class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
